@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block header %}
+{% include 'header.html' %}
+{% endblock %}
+
+
+{% block css %}
+{#    <link href="css/bootstrap.min.css?v=3.3.6" rel="stylesheet">#}
+    <link href="{% static 'css/font-awesome.css' %}" rel="stylesheet">
+    <link href="{% static 'css/animate.css' %}" rel="stylesheet">
+    <link href="{% static 'css/styleblog.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+
+
+
+<body class="gray-bg">
+    <div class="wrapper wrapper-content">
+        <div class="row animated fadeInRight">
+            <div class="col-sm-4">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>个人资料</h5>
+                    </div>
+                    <div>
+                        <div class="ibox-content no-padding border-left-right">
+                            <img alt="image" class="img-responsive" src="{% static 'img/avtar.png' %}">
+                        </div>
+                        {% for row in user %}
+                        <div class="ibox-content profile-content">
+                            <h4><strong>姓名：{{ row.name }}</strong></h4>
+{#                            <p><i class="fa fa-map-marker"></i> 上海市闵行区绿地科技岛广场A座2606室</p>#}
+                            <h4><strong>状态：{{ row.status }}</strong></h4>
+                            <h4><strong>工资卡号：{{ row.wage_card }}</strong></h4>
+                            <h4><strong>身份证号：{{ row.idcard }}</strong></h4>
+                            <h4><strong>查询隶属单位：{{ row.unit}}</strong></h4>
+
+
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-content">
+
+                        <div id="demo" class="carousel slide" data-ride="carousel">
+
+  <!-- 指示符 -->
+  <ul class="carousel-indicators">
+    <li data-target="#demo" data-slide-to="0" class="active"></li>
+    <li data-target="#demo" data-slide-to="1"></li>
+    <li data-target="#demo" data-slide-to="2"></li>
+  </ul>
+
+  <!-- 轮播图片 -->
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img width="930" height="340" src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1639811765,2913805054&fm=26&gp=0.jpg">
+      <div class="carousel-caption">
+
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img width="930" height="340" src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3204802870,996087153&fm=26&gp=0.jpg">
+      <div class="carousel-caption">
+
+      </div>
+    </div>
+    <div class="carousel-item">
+{#      <img width="930" height="340" src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1881355437,3766544545&fm=26&gp=0.jpg">#}
+
+        <table style="border: inherit">
+            <thead>
+            <th>helo</th>
+            <th>helo</th>
+            <th>helo</th>
+            </thead>
+            <tbody>
+            <td>ajhdfaj</td>
+            <td>ajhdfaj</td>
+            <td>ajhdfaj</td>
+            </tbody>
+        </table>
+        <div class="carousel-caption">
+
+      </div>
+    </div>
+  </div>
+
+  <!-- 左右切换按钮 -->
+  <a class="carousel-control-prev" href="#demo" data-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </a>
+  <a class="carousel-control-next" href="#demo" data-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </a>
+
+</div>
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}
+{% block js %}
+     <!-- 自定义js -->
+{#    <script src="{% static 'js/content.js' %}js/content.js?v=1.0.0"></script>#}
+{##}
+{##}
+{#    <!-- Peity -->#}
+{#    <script src="{% static 'js/plugins/peity/jquery.peity.min.js' %}"></script>#}
+{#    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>#}
+{##}
+{#    <!-- Peity -->#}
+{#    <script src="{% static 'js/demo/peity-demo.js' %}js/demo/peity-demo.js"></script>#}
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+  <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+{% endblock %}

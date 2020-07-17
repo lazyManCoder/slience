@@ -1,0 +1,236 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block css %}
+    <link href="{% static 'css/animate.css' %}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/plugins/markdown/bootstrap-markdown.min.css' %}" />
+    <link href="{% static 'css/styleblog.css' %}" rel="stylesheet">
+     <link href="{% static 'css/font-awesome.css' %}" rel="stylesheet">
+    <style>
+.btn-white {
+    color: inherit;
+    background: white;
+    border: 1px solid #e7eaec;
+}
+    .breadcrumb{
+        background: transparent;
+    }
+    .breadcrumb > li a {
+    color: inherit;
+        margin:20px;
+}
+
+.breadcrumb > .active {
+    color: inherit;
+    margin:20px;
+}
+
+    #i1{
+
+-moz-border-radius: 10px;
+-webkit-border-radius: 10px;
+border-radius: 10px;
+
+    }
+    </style>
+{% endblock %}
+
+{% block body %}
+style="background:url({% static 'img/police-bg.jpg' %})"
+{% endblock %}
+
+{% block header %}{% include 'header.html' %}{% endblock %}
+
+{% block content %}
+    <div class="main-container">
+            <!-- 内容板块 -->
+            <div class="page-header">
+                <!-- 面包屑 -->
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item active">首页</li>
+                    <li class="breadcrumb-item">留言查询</li>
+                </ol>
+                <!-- 日期模块 -->
+                <ul class="app-actions">
+                    <li>
+                        <a href="#" id="reportrange">
+                            <span class="range-text"></span>
+                            <i class="icon-chevron-down"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+
+    <div class="wrapper wrapper-content">
+
+     <div class="row">
+
+        <div class="col-lg-8">
+            <div class="social-feed-box" id="i1">
+                {% for row in comment %}
+                <div class="social-avatar">
+                    <a href="" class="pull-left">
+                        <img class="img-circle" alt="image" src="http://127.0.0.1:8000/upload/icon/default.jpg">
+                    </a>
+                    <div class="media-body">
+                             <a href="#">
+                                {{ row.msg.name }}
+                            </a>
+
+                        <small>{{ row.create_time }}</small>
+                    </div>
+                </div>
+                <div class="social-body" >
+                    <p>
+                        {{ row.content }}
+                    </p>
+
+                    <button id="comment_{{ row.id }}" onclick="clickFunction(this);"   class="btn btn-info" >评论({{ comment_num }})</button>
+
+                    <div  class="row content_{{ row.id }}" style="display: none">
+                    {% for rel in reply %}
+                         {% if rel.comment_id == row.id %}
+
+                    <div style="margin-left: 60px;margin-top: 20px;">
+                        <div class="social-avatar">
+                            <a href="" class="pull-left">
+                                <img style="width: 40px;height: 40px;" src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=409287670,2899421882&fm=26&gp=0.jpg">
+                            </a>
+                            <div class="media-body">
+                                     <a href="#">
+                                        {{  rel.user }}进行回复：{{ rel.data }}
+                                    </a>
+
+                                <small>{{ rel.tim }}</small>
+                            </div>
+                        </div>
+                    </div>
+                        {% endif %}
+                    {% endfor %}
+                    <div class="col-lg-12">
+                            <div class="ibox-content">
+                                <textarea placeholder="留下你的想法..." id="ajax_content_{{ row.id }}"  rows="3" cols="120"></textarea>
+                                 <button id="ajax_{{ row.id }}" onclick="receiveFunction(this);" class="btn btn-info">回复</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                    <hr />
+                {% endfor %}
+
+
+            </div>
+
+        </div>
+        <div class="col-sm-4">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>个人资料</h5>
+                    </div>
+                    <div>
+                        <div class="ibox-content no-padding border-left-right">
+                            <img alt="image" class="img-responsive" src="{% static 'img/avtar.png' %}">
+                        </div>
+                        {% for row in user %}
+                        <div class="ibox-content profile-content">
+                            <h4><strong>姓名：{{ row.name }}</strong></h4>
+{#                            <p><i class="fa fa-map-marker"></i> 上海市闵行区绿地科技岛广场A座2606室</p>#}
+                            <h4><strong>状态：{{ row.status }}</strong></h4>
+                            <h4><strong>工资卡号：{{ row.wage_card }}</strong></h4>
+                            <h4><strong>身份证号：{{ row.idcard }}</strong></h4>
+                            <h4><strong>查询隶属单位：{{ row.unit}}</strong></h4>
+                        </div>
+                        {% endfor %}
+                        <div class="ibox-content">
+                                <textarea placeholder="我也来说说我的想法..." id="ajax_content"  rows="3" cols="50"></textarea>
+                                 <button id="ajax_submit"  class="btn btn-info">发表说说</button>
+                            </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+{% endblock %}
+    <!-- 全局js -->
+{% block js %}
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/jquery.cookie.js' %}"></script>
+    <script>
+
+        function clickFunction(ths){
+            var vid = $(ths).attr('id');
+            var num = vid.split("_")[1];
+            var classname = ".row .content_" + num;
+            console.log(classname);
+            $(classname).css('display','block');
+
+        }
+
+
+        function receiveFunction(ths){
+            var vid = $(ths).attr('id');
+            var num = vid.split("_")[1];
+            var idname = "#ajax_content_" + num;
+            var data = $(idname).val();
+            alert(data);
+
+            $.ajax({
+                url:'{% url 'file:board' %}',
+                type:'POST',
+                data:{'reply_data':data,'num':num},
+                success:function(data){
+                        alert('留言成功');
+                        location.reload()
+                }
+            })
+
+            var classname = ".row .content_" + num;
+            $(classname).css('display','none');
+
+        }
+
+
+        $('#ajax_submit').click(function(){
+             var data = $('#ajax_content').val();
+
+            $.ajax({
+                url:'{% url 'file:board' %}',
+                type:'POST',
+                data:{'data':data},
+                success:function(data){
+                        alert('留言成功');
+                        location.reload()
+                }
+            })
+        })
+
+{#        $('#ajax_submit1').click(function(){#}
+{#             var data = $('#ajax_content1').val();#}
+{#            alert(data);#}
+{#            $.ajax({#}
+{#                url:'{% url 'file:board' %}',#}
+{#                type:'POST',#}
+{#                data:{'reply_data':data},#}
+{#                success:function(data){#}
+{#                    if(len(data)>0){#}
+{#                        alert('留言成功')#}
+{#                    }#}
+{#                }#}
+{#            })#}
+{#        })#}
+
+    </script>
+
+    <!-- 自定义js -->
+    <script src="{% static 'js/content.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/plugins/markdown/markdown.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/plugins/markdown/to-markdown.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/plugins/markdown/bootstrap-markdown.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/plugins/markdown/bootstrap-markdown.zh.js' %}"></script>
+    {% endblock %}
+

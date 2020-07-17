@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>{% block tite %}{% endblock %}</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+    <link href="{% static 'css/bootstrap.min3.css' %}" rel="stylesheet">
+    <link href="{% static 'css/font-awesome.css' %}" rel="stylesheet">
+
+    <link href="{% static 'css/animate.css' %}" rel="stylesheet">
+    <link href="{% static 'css/styleblog.css' %}" rel="stylesheet">
+
+    {% block css %}{% endblock %}
+    <!--[if lt IE 9]>
+    <meta http-equiv="refresh" content="0;ie.html" />
+    <![endif]-->
+    <script>if(window.top !== window.self){ window.top.location = window.location;}</script>
+</head>
+{#{% static 'img/police-bg.jpg' %}#}
+
+{% block body %}{% endblock %}
+
+    {% block content %}{% endblock %}
+
+    <!-- 全局js -->
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.css' %}"></script>
+    {% block js %}{% endblock %}
+
+
+
+</body>
+
+</html>

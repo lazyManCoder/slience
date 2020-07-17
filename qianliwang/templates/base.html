@@ -1,0 +1,107 @@
+{% load staticfiles %}
+<!doctype html>
+<html lang="zh-CN">
+<head>
+ <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Meta -->
+    <meta name="description" content="Responsive Bootstrap4 Dashboard Template">
+    <meta name="author" content="ParkerThemes">
+    <link rel="shortcut icon" href="{% static 'img/police.png' %}"/>
+    <link rel="shortcut icon" href="{% static 'img/fav.png' %}"/>
+    <!-- Title -->
+    <title>{% block title %}{% endblock %}</title>
+
+    <!-- Bootstrap css -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <!-- Icomoon Font Icons css -->
+    <link rel="stylesheet" href="{% static 'fonts/style.css' %}">
+    <!-- Main css -->
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+
+    <!-- DateRange css -->
+    <link rel="stylesheet" href="{% static 'vendor/daterange/daterange.css' %}"/>
+    <!-- Chartist css -->
+    <link rel="stylesheet" href="{% static 'vendor/chartist/css/chartist.min.css' %}"/>
+    <link rel="stylesheet" href="{% static 'vendor/chartist/css/chartist-custom.css' %}"/>
+    <link rel="stylesheet" href="{% static 'vendor/circliful/circliful.css' %}"/>
+    {% block css %}{% endblock %}
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/jquery.cookie.js' %}"></script>
+{#<script>#}
+{#     $(document).ready(function(){#}
+{#         $('.nav-item .nav-link').click(function(){#}
+{#             $(this).siblings().removeClass('active-page');#}
+{#             $(this).addClass('active-page');#}
+{#         })#}
+{#    });#}
+{#</script>#}
+</head>
+<body {% block body %}{% endblock %}>
+
+<header class="header" >
+<!--头部导航条logo标题开始-->
+	<div class="logo-wrapper">
+		<a href="../new/index222.html" class="logo ml-2 navbar-brand mr-auto text-muted">
+			<img id="bg1" src="{% static 'img/police.png' %}" alt="Wafi Admin Dashboard" width="30" height="30"
+				 class="d-inline-block align-top">
+			盛世联盟-网罗天下英豪
+		</a>
+	</div><!--text-muted属性的强调色,提示，使用浅灰色（#999）-->
+<!--导航条logo标题结束-->
+<!--头部导航条开始-->
+	<div class="header-items">
+<!--头部导航条搜索查询开始-->
+		<div class="custom-search">
+			<label>
+				<input type="text" class="search-query" placeholder="请输入查询内容 ...">
+			</label>
+			<i class="icon-search1"></i>
+		</div>
+
+<!--头部搜索查询结束-->
+<!--个人消息及个人信息-->
+		<ul class="header-actions">
+			<li class="dropdown"></li>
+			<li class="dropdown">
+				<a href="#" id="userSettings" class="user-settings" data-toggle="dropdown" aria-haspopup="true">
+					<span class="user-name">基本信息</span>
+					<span class="avatar"><img src="{% static 'img/avtar.png' %}" class="rounded-circle"></span><!--<span class="status busy"></span>-->
+				</a>
+				<div class="dropdown-menu dropdown-menu-right" aria-labelledby="userSettings">
+
+					{% if not request.session.is_login %}
+                         <div class="text-center"><a href="{% url 'user:login' %}" class="text-center"><button class="btn btn-info">登录</button> </a></div>
+
+                    {% else %}
+                    <div class="header-profile-actions">
+						<div class="header-user-profile">
+							<div class="header-user">
+								<img src="{% static 'img/user.png' %}" alt="Admin Template"/>
+							</div>
+                            {% for row1 in obj %}
+							<h5>{{ row1.user.name }}</h5>
+							<p>普通用户</p>
+                            {% endfor %}
+						</div>
+						<a href="{% url 'user:user' %}"><i class="icon-user1"></i> 我的信息</a>
+						<!--								<a href="account-settings.html"><i class="icon-settings1"></i> Account Settings</a>-->
+						<a href="{% url 'user:logout' %}"><i class="icon-log-out1"></i> 退出</a>
+					</div>
+				</div>
+                {% endif %}
+			</li>
+		</ul>
+	</div>
+</header>
+
+{% block header %}{% endblock %}
+
+{% block content %}{% endblock %}
+
+{% block footer %}{% endblock %}
+
+    {% block js %}{% endblock %}
+</body>
+</html>

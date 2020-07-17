@@ -1,0 +1,147 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block css %}
+
+		<style>
+            .table thead th{
+                vertical-align: top;
+                width:20%;
+            }
+            .table-primary{
+                color: black;
+            }
+
+        #content{
+            table-layout:fixed; /* bootstrap-table设置colmuns中某列的宽度无效时，需要给整个表设置css属性 */
+		    word-break:break-all; word-wrap:break-all; /* 自动换行 */
+        }
+
+        #row2{
+            text-align: center;
+        }
+
+        </style>
+{% endblock %}
+
+{% block header %}{% include 'header.html' %}{% endblock %}
+<!--横条面包屑开始-->
+
+{% block content %}
+        <div class="main-container">
+            <!-- 内容板块 -->
+            <div class="page-header">
+                <!-- 面包屑 -->
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item active">首页</li>
+                    <li class="breadcrumb-item">财政工资发放明细表</li>
+                </ol>
+                <!-- 日期模块 -->
+                <ul class="app-actions">
+                    <li>
+                        <a href="#" id="reportrange">
+                            <span class="range-text"></span>
+                            <i class="icon-chevron-down"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-wrapper" style="height:700px;overflow:scroll">
+            <div class="row gutters " style="height: 100%">
+				<div class=" col-xl-12 col-lg-9 col-md-9 col-sm-12 col-12">
+                <div class="table-responsive">
+                    <table id="content" class="table table-bordered table-hover">
+                        <form action="{% url 'user:detail'  %}" method="post">
+                            <label for="d1">选择日期：</label>
+                            <input style="padding: 5px" type="month" value="2020-06"  name="d1" id="d1">
+                            <input style="padding:6px;" type="submit" value="点击查询" >
+                        </form>
+                        <thead >
+                            <tr id="row3" class="table-primary">
+                                <th style=" width: 160px;text-align: center;">姓名</th>
+                                <th style=" width: 160px;text-align: center;">身份证号</th>
+                                <th style=" width: 160px;text-align: center;">工资发放日期</th>
+                                <th style=" width: 160px;text-align: center;">职务工资</th>
+                                <th style=" width: 160px;text-align: center;">级别工资</th>
+                                <th style=" width: 160px;text-align: center;">岗位工资</th>
+                                <th style=" width: 160px;text-align: center;">薪级工资</th>
+                                <th style=" width: 160px;text-align: center;">技术等级工资</th>
+                                <th style=" width: 160px;text-align: center;">教师10%工资</th>
+                                <th style=" width: 160px;text-align: center;">警衔补贴</th>
+                                <th style=" width: 160px;text-align: center;">行业津补贴</th>
+                                <th style=" width: 160px;text-align: center;">伤残补助</th>
+                                <th style=" width: 160px;text-align: center;">津贴</th>
+                                <th style=" width: 160px;text-align: center;">特殊补助</th>
+                                <th style=" width: 160px;text-align: center;">取暖费</th>
+                                <th  style=" width: 160px;text-align: center;">独生子女</th>
+                                <th style=" width: 160px;text-align: center;">电话费</th>
+                                <th style=" width: 160px;text-align: center;">现行补贴</th>
+                                <th style=" width: 160px;text-align: center;">公务交通补贴</th>
+                                <th style=" width: 160px;text-align: center;">其他一</th>
+                                <th style=" width: 160px;text-align: center;">硕博补贴</th>
+                                <th style=" width: 160px;text-align: center;">补发工资</th>
+                                <th style=" width: 160px;text-align: center;">其他二</th>
+                                <th style=" width: 160px;text-align: center;">个人基本养老为保险基金</th>
+                                <th style=" width: 160px;text-align: center;">财政扣款</th>
+                                <th style=" width: 160px;text-align: center;">职业年金</th>
+                                <th style=" width: 160px;text-align: center;">应发项</th>
+                                <th style=" width: 160px;text-align: center;">所得税</th>
+                                <th style=" width: 160px;text-align: center;">住房基金</th>
+                                <th style=" width: 160px;text-align: center;">失业保险</th>
+                                <th style=" width: 160px;text-align: center;">医疗保险</th>
+                                <th style=" width: 160px;text-align: center;">扣款合计</th>
+                                <th style=" width: 160px;text-align: center;">扣款项目其他一</th>
+                                <th style=" width: 160px;text-align: center;">扣款项目其他二</th>
+                                <th style=" width: 160px;text-align: center;">实发工资</th>
+                            </tr>
+                        </thead>
+                        {% for row in salary %}
+                        <tbody class="table-success">>
+                            <tr id="row2">
+                                <td>{{ row.user.name}}</td>
+                                <td>{{ row.user.idcard }}</td>
+                                <td>{{ row.year }}/{{ row.month }}</td>
+                                <td>{{ row.duty }}</td>
+                                <td>{{ row.level }}</td>
+                                <td>{{ row.station }}</td>
+                                <td>{{ row.salary_post }}</td>
+                                <td>{{ row.tcgrade }}</td>
+                                <td>{{ row.teacher }}</td>
+                                <td>{{ row.police_rank }}</td>
+                                <td>{{ row.industry }}</td>
+                                <td>{{ row.maim }}</td>
+                                <td>{{ row.allowance }}</td>
+                                <td>{{ row.special }}</td>
+                                <td>{{ row.heart }}</td>
+                                <td>{{ row.only_child }}</td>
+                                <td>{{ row.phone_fee }}</td>
+                                <td>{{ row.current_subsiby }}</td>
+                                <td>{{ row.traffic }}</td>
+                                <td>{{ row.others }}</td>
+                                <td>{{ row.thurber }}</td>
+                                <td>{{ row.reissue }}</td>
+                                <td>{{ row.other2 }}</td>
+                                <td>{{ row.individual }}</td>
+                                <td>{{ row.fiscal }}</td>
+                                <td>{{ row.profession }}</td>
+                                <td>{{ row.should }}</td>
+                                <td>{{ row.income }}</td>
+                                <td>{{ row.house }}</td>
+                                <td>{{ row.lose }}</td>
+                                <td>{{ row.hospital }}</td>
+                                <td>{{ row.combined }}</td>
+                                <td>{{ row.other_item }}</td>
+                                <td>{{ row.other_item1 }}</td>
+                                <td>{{ row.salary_pay }}</td>
+                            </tr>
+                        </tbody>
+                        {% endfor %}
+
+
+                    </table>
+    </div>
+
+{% endblock %}
+
+

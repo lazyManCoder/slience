@@ -1,0 +1,153 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block css %}
+    <link href="/static/css/font-awesome.css" rel="stylesheet">
+    <link href="/static/css/animate.css" rel="stylesheet">
+    <link href="/static/css/styleblog.css" rel="stylesheet">
+    <style>
+        img{
+            width: 400px;
+            height: 200px;
+        }
+
+        #bg1{
+             width:30px;
+            height:30px
+        }
+       .breadcrumb{
+        background: transparent;
+    }
+    .breadcrumb > li a {
+    color: inherit;
+        margin:20px;
+}
+
+.breadcrumb > .active {
+    color: inherit;
+    margin:20px;
+}
+
+
+    .wrapper-content {
+        padding: 8px;
+
+
+
+    }
+    .navbar-default {background-color:grey;}
+    </style>
+
+{% endblock %}
+
+{% block body %}
+style="background:url(https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2747738859,308923364&fm=15&gp=0.jpg);no-repeat;background-size:cover;"
+{% endblock %}
+
+{% block header %}
+    {% include 'header.html' %}
+{% endblock %}
+
+{% block content %}
+    <div class="main-container">
+            <!-- 内容板块 -->
+            <div class="page-header">
+                <!-- 面包屑 -->
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item active">首页</li>
+                    <li class="breadcrumb-item">国家文件政策</li>
+                </ol>
+                <!-- 日期模块 -->
+                <ul class="app-actions">
+                    <li>
+                        <a href="#" id="reportrange">
+                            <span class="range-text"></span>
+                            <i class="icon-chevron-down"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+<div>
+ <div class="row">
+        <div class="wrapper wrapper-content animated fadeInRight">
+            <div class="row">
+                <div class="col-sm-2" style="background: url(http://img1.imgtn.bdimg.com/it/u=1813350037,2978146810&fm=26&gp=0.jpg);border-radius: 20px">
+                     <div class="wrapper wrapper-content animated fadeInRight ">
+                         <div class="ibox-content forum-container" style="padding-top: 1px;border-radius: 30px;opacity: 0.8">
+                    <div style="height: 200px;">
+                        <div class="text text-center" style="padding-bottom: 20px;color:indianred;padding-top:14px;border: 1px solid lightgrey;border-radius: 30px;font-size: 20px;background-color: burlywood "><i class="fa fa-paper-plane" aria-hidden="true"></i>&nbsp;<a href="{% url 'file:duty' %}">职务工资标准</a></div>
+                        <div class="text text-center" style="padding-bottom: 20px;color:indianred;padding-top:14px;border: 1px solid lightgrey;border-radius: 30px;font-size: 20px;background-color: burlywood "><i class="fa fa-paper-plane" aria-hidden="true"></i>&nbsp;<a href="{% url 'file:level' %}">等级工资标准</a></div>
+                        <div class="text text-center" style="padding-bottom: 20px;color:indianred;padding-top:14px;border: 1px solid lightgrey;border-radius: 30px;font-size: 20px;background-color: burlywood "><i class="fa fa-paper-plane" aria-hidden="true"></i>&nbsp;<a href="{% url 'file:current' %}">现行补贴标准</a></div>
+                    </div>
+                         </div>
+                          </div>
+                </div>
+                <div class="col-sm-10">
+                    <div class="wrapper wrapper-content animated fadeInRight ">
+                        <div class="ibox-content forum-container" style="padding-top: 1px;border-radius: 30px">
+                            <div class="forum-title">
+                                <h3>主版</h3>
+                            </div>
+
+                            <div class="forum-item active">
+                                <div class="row">
+                                     <div class="col-sm-10">
+                                         <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>职务名称</th>
+                                                    <th>发放标准</th>
+                                                    <th>执行时间</th>
+                                                    <th>当前状态</th>
+
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {% for row in res %}
+                                                <tr>
+                                                    <td>{{ row.duty }}</td>
+                                                    <td>{{ row.sent }}</td>
+                                                    <td>{{ row.time0 }}</td>
+                                                    <td>{{ row.current }}</td>
+                                                </tr>
+                                                {% endfor %}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="forum-title">
+                                <div class="pull-right forum-desc">
+                                    <samll>总贴子数：17,800,600</samll>
+                                </div>
+                                <h3>相关新闻</h3>
+                            </div>
+
+
+                             <div class="forum-item">
+                                <div class="row">
+                                    <div class="col-sm-9">
+                                        <div class="forum-icon">
+                                            <i style="color: red" class="fa fa-hand-o-right" aria-hidden="true"></i>
+                                        </div>
+                                         <a id="hov" href="http://gat.jl.gov.cn/" class="forum-item-title">吉林省公安厅</a>
+                                        <div class="forum-sub-title">吉林省公安厅是吉林省人民政府下设主管全省公安工作的职能部门，公安厅受省政府、公安部的双重领导。各市、县（县级市、区）设有公安局（分局），在镇、乡、街道设派出所。公安局（分局）和派出所，分别接受同级人民政府和上级公安机关领导</div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block js %}
+    <script>
+    </script>
+
+{% endblock %}

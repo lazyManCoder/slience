@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Meta -->
+    <meta name="description" content="Responsive Bootstrap4 Dashboard Template">
+    <meta name="author" content="ParkerThemes">
+    <link rel="shortcut icon" href="../img/police.png"/>
+    <link rel="shortcut icon" href="../img/fav.png"/>
+    <!-- Title -->
+    <title>六六大顺潜力网</title>
+
+    <!-- Bootstrap css -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <!-- Icomoon Font Icons css -->
+    <link rel="stylesheet" href="../fonts/style.css">
+    <!-- Main css -->
+    <link rel="stylesheet" href="../css/main.css">
+
+    <!-- DateRange css -->
+    <link rel="stylesheet" href="../vendor/daterange/daterange.css"/>
+    <!-- Chartist css -->
+    <link rel="stylesheet" href="../vendor/chartist/css/chartist.min.css"/>
+    <link rel="stylesheet" href="../vendor/chartist/css/chartist-custom.css"/>
+    <link rel="stylesheet" href="../vendor/circliful/circliful.css"/>
+</head>
+<body>
+<!--<body style="overflow-y:hidden">-->
+<!-- Loading starts -->
+<!--<div id="loading-wrapper">-->
+<!--    <div class="spinner-border" role="status">-->
+<!--        <span class="sr-only">请稍等...</span>-->
+<!--    </div>-->
+<!--</div>-->
+<!-- Loading ends -->
+<!-- 头部开始 -->
+<header class="header">
+<!--头部导航条logo标题开始-->
+	<div class="logo-wrapper">
+		<a href="../new/index222.html" class="logo ml-2 navbar-brand mr-auto text-muted">
+			<img src="../img/police.png" alt="Wafi Admin Dashboard" width="30" height="30"
+				 class="d-inline-block align-top">
+			盛世联盟-网罗天下英豪
+		</a>
+	</div><!--text-muted属性的强调色,提示，使用浅灰色（#999）-->
+<!--导航条logo标题结束-->
+<!--头部导航条开始-->
+	<div class="header-items">
+<!--头部导航条搜索查询开始-->
+		<div class="custom-search">
+			<label>
+				<input type="text" class="search-query" placeholder="请输入查询内容 ...">
+			</label>
+			<i class="icon-search1"></i>
+		</div>
+<!--头部搜索查询结束-->
+<!--个人消息及个人信息-->
+		<ul class="header-actions">
+			<li class="dropdown">
+				<a href="#" id="notifications" data-toggle="dropdown" aria-haspopup="true">
+					<i class="icon-bell"></i>
+					<span class="count-label">8</span>
+				</a>
+				<div class="dropdown-menu dropdown-menu-right lrg" aria-labelledby="notifications">
+					<div class="dropdown-menu-header">
+						您的消息 (40)
+					</div>
+					<ul class="header-notifications">
+						<li>
+							<a href="#">
+								<div class="user-img away">
+									<img src="../img/user21.png" alt="User"/>
+								</div>
+								<div class="details">
+									<div class="user-title">劳资问题回复</div>
+									<div class="noti-details">已收悉，正在解答中</div>
+									<div class="noti-date">Oct 20, 07:30 pm</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<div class="user-img busy">
+									<img src="../img/user10.png" alt="User"/>
+								</div>
+								<div class="details">
+									<div class="user-title">职级问题回复</div>
+									<div class="noti-details">职级问题已收到，请稍后...</div>
+									<div class="noti-date">Oct 10, 12:00 am</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<div class="user-img online">
+									<img src="../img/user6.png" alt="User"/>
+								</div>
+								<div class="details">
+									<div class="user-title">其他问题回复</div>
+									<div class="noti-details">其他问题已收悉，请耐心等</div>
+									<div class="noti-date">Oct 15, 04:00 pm</div>
+								</div>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</li>
+			<li class="dropdown">
+				<a href="#" id="userSettings" class="user-settings" data-toggle="dropdown" aria-haspopup="true">
+					<span class="user-name">基本信息</span>
+					<span class="avatar"></span><!--<span class="status busy"></span>-->
+				</a>
+				<div class="dropdown-menu dropdown-menu-right" aria-labelledby="userSettings">
+					<div class="header-profile-actions">
+						<div class="header-user-profile">
+							<div class="header-user">
+								<img src="../img/user.png" alt="Admin Template"/>
+							</div>
+							<h5>王之涣</h5>
+							<p>普通用户</p>
+						</div>
+						<a href="../user-profile.html"><i class="icon-user1"></i> 我的信息</a>
+						<!--								<a href="account-settings.html"><i class="icon-settings1"></i> Account Settings</a>-->
+						<a href="../login.html"><i class="icon-log-out1"></i> 退出</a>
+					</div>
+				</div>
+			</li>
+			<!--					<li>-->
+			<!--						<a href="#" class="quick-settings-btn" data-toggle="tooltip" data-placement="left" title="" data-original-title="Quick Settings">-->
+			<!--							<i class="icon-list"></i>-->
+			<!--						</a>-->
+			<!--					</li>-->
+		</ul>
+<!--个人消息及个人信息结束-->
+		<!-- Header actions end -->
+	</div>
+</header>
+<!-- 头部导航条结束 -->
+<!--功能导航条开始-->
+	<div class="container-fluid">
+		<nav class="navbar navbar-expand-lg custom-navbar">
+			<div class="collapse navbar-collapse" id="WafiAdminNavbar">
+					<ul class="navbar-nav">
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle active-page" href="#" id="dashboardsDropdown" role="button"
+							   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								<i class="icon-devices_other nav-icon"></i>
+		<!--	<nav class="navbar navbar-expand-lg custom-navbar">-->
+		<!--		&lt;!&ndash;横条开始&ndash;&gt;-->
+		<!--		<div class="collapse navbar-collapse" id="WafiAdminNavbar">-->
+		<!--			<ul class="navbar-nav">-->
+		<!--				<li class="nav-item dropdown">-->
+		<!--					<a class="nav-link dropdown-toggle active-page" href="#" id="dashboardsDropdown" role="button"-->
+		<!--					   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+		<!--						<i class="icon-devices_other nav-icon"></i>-->
+								我的首页
+							</a>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="appsDropdown" role="button" data-toggle="dropdown"
+							   aria-haspopup="true" aria-expanded="false">
+								<i class="icon-package nav-icon"></i>
+								财政统发工资
+							</a>
+							<ul class="dropdown-menu" aria-labelledby="appsDropdown">
+								<li>
+									<a class="dropdown-item" href="#">工资明细查询</a>
+								</li>
+								<!--                        <li>-->
+								<!--                            <a class="dropdown-item" href="#">年度发放明细</a>-->
+								<!--                        </li>-->
+								<!--                        <li>-->
+								<!--                            <a class="dropdown-item" href="#">以往发放查询</a>-->
+								<!--                        </li>-->
+							</ul>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="appsDropdown" role="button" data-toggle="dropdown"
+							   aria-haspopup="true" aria-expanded="false">
+								<i class="icon-package nav-icon"></i>
+								工资发放标准
+							</a>
+							<ul class="dropdown-menu" aria-labelledby="appsDropdown">
+								<li>
+									<a class="dropdown-item" href="#">职务工资标准</a>
+								</li>
+								<li>
+									<a class="dropdown-item" href="#">等级工资标准</a>
+								</li>
+								<li>
+									<a class="dropdown-item" href="#">现行补贴标准</a>
+								</li>
+							</ul>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="appsDropdown" role="button" data-toggle="dropdown"
+							   aria-haspopup="true" aria-expanded="false">
+								<i class="icon-package nav-icon"></i>
+								现行工资政策
+							</a>
+							<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="calendarsDropdown">
+								<li>
+									<a class="dropdown-item" href="#">国家级文件政策</a>
+								</li>
+								<li>
+									<a class="dropdown-item" href="#">省部级文件政策</a>
+								</li>
+								<li>
+									<a class="dropdown-item" href="#">本地政策规定</a>
+								</li>
+							</ul>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="appsDropdown" role="button" data-toggle="dropdown"
+							   aria-haspopup="true" aria-expanded="false">
+								<i class="icon-package nav-icon"></i>
+								通知\通报\公示
+							</a>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="appsDropdown" role="button" data-toggle="dropdown"
+							   aria-haspopup="true" aria-expanded="false">
+								<i class="icon-package nav-icon"></i>
+								留言咨询
+							</a>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="appsDropdown" role="button" data-toggle="dropdown"
+							   aria-haspopup="true" aria-expanded="false">
+								<i class="icon-package nav-icon text-danger"></i><!--class="icon-package nav-icon"-->
+								人力资源分布统计
+							</a>
+							<!--								<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="calendarsDropdown">-->
+							<!--									<li>-->
+							<!--										<a class="dropdown-item" href="#">备用</a>-->
+							<!--									</li>-->
+							<!--								</ul>-->
+						</li>
+					</ul>
+			</div>
+		</nav>
+<!--横条面包屑开始-->
+        <div class="main-container">
+
+            <!-- 内容板块 -->
+            <div class="page-header">
+                <!-- 面包屑 -->
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item active">首页</li>
+                    <li class="breadcrumb-item">财政工资发放明细表</li>
+                </ol>
+                <!-- 日期模块 -->
+                <ul class="app-actions">
+                    <li>
+                        <a href="#" id="reportrange">
+                            <span class="range-text"></span>
+                            <i class="icon-chevron-down"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="content-wrapper" style="height:600px;overflow:scroll">
+            <!-- 主页面导航条：style="height:600px;overflow:scroll"-->
+            <div class="row gutters" style="height: 100%">
+                <div class="col-xl-12 col-lg-9 col-md-9 col-sm-12 col-12">
+                    <!--发放汇总统计表开始-->
+                    <div class="card">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

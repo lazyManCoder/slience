@@ -1,0 +1,170 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block css %}
+    <link href="/static/css/font-awesome.css" rel="stylesheet">
+    <link href="/static/css/animate.css" rel="stylesheet">
+    <link href="/static/css/styleblog.css" rel="stylesheet">
+    <style>
+        img{
+            width: 400px;
+            height: 200px;
+        }
+
+        #bg1{
+             width:30px;
+            height:30px
+        }
+       .breadcrumb{
+        background: transparent;
+    }
+    .breadcrumb > li a {
+    color: inherit;
+        margin:20px;
+}
+
+.breadcrumb > .active {
+    color: inherit;
+    margin:20px;
+}
+
+
+    .wrapper-content {
+        padding: 8px;
+
+
+
+    }
+    .navbar-default {background-color:grey;}
+
+    #hov:hover{
+        color: red;
+    }
+
+    </style>
+
+{% endblock %}
+
+{% block body %}
+style="background:url(https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2747738859,308923364&fm=15&gp=0.jpg);no-repeat;background-size:cover;"
+{% endblock %}
+
+{% block header %}
+    {% include 'header.html' %}
+{% endblock %}
+
+{% block content %}
+    <div class="main-container">
+            <!-- 内容板块 -->
+            <div class="page-header">
+                <!-- 面包屑 -->
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item active">首页</li>
+                    <li class="breadcrumb-item">国家文件政策</li>
+                </ol>
+                <!-- 日期模块 -->
+                <ul class="app-actions">
+                    <li>
+                        <a href="#" id="reportrange">
+                            <span class="range-text"></span>
+                            <i class="icon-chevron-down"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+<div>
+ <div class="row">
+        <div class="wrapper wrapper-content animated fadeInRight">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="wrapper wrapper-content animated fadeInRight ">
+
+{#                        <div class="ibox-content m-b-sm border-bottom" >#}
+{#                            <div class="p-xs">#}
+{#                                <div class="pull-left m-r-md">#}
+{#                                    <i class="fa fa-globe text-navy mid-icon"></i>#}
+{#                                </div>#}
+{#                                <h2>欢迎来到通知中心</h2>#}
+{#                                <span>你可以自由选择你感兴趣的话题。</span>#}
+{#                            </div>#}
+{#                        </div>#}
+
+                        <div class="ibox-content forum-container" style="padding-top: 1px;border-radius: 30px">
+
+                            <div class="forum-title">
+{#                                <div class="pull-right forum-desc">#}
+{#                                    <samll>总帖子数： 320,800</samll>#}
+{#                                </div>#}
+                                <h3>主版</h3>
+                            </div>
+                            {% for row in msg %}
+                            <div class="forum-item active">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="forum-icon">
+                                            <i class="fa fa-bullhorn" aria-hidden="true"></i>
+                                        </div>
+                                        <a href="/inform/v1/msg_detail-{{ row.id }}.html/" >
+                                            <h2>
+                                                {{ row.title }}
+                                            </h2>
+                                        </a>
+{#                                        <a href="base.html">{{ row.title }}</a>#}
+                                    </div>
+                                    <div class="col-sm-2 forum-info">
+                                        <span class="views-number">
+                                            {{ row.views }}
+                                        </span>
+                                        <div>
+                                            <small>浏览</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3 forum-info">
+                                        <span class="views-number">
+                                            {{ row.create_time }}
+                                        </span>
+                                        <div>
+                                            <small>发布日期</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+
+                            <div class="forum-title">
+{#                                <div class="pull-right forum-desc">#}
+{#                                    <samll>总贴子数：17,800,600</samll>#}
+{#                                </div>#}
+                                <h3>相关新闻</h3>
+                            </div>
+
+
+                             <div class="forum-item">
+                                <div class="row">
+                                    <div class="col-sm-9">
+                                        <div class="forum-icon">
+                                            <i style="color: red" class="fa fa-hand-o-right" aria-hidden="true"></i>
+                                        </div>
+
+                                        <a id="hov" href="http://gat.jl.gov.cn/" class="forum-item-title">吉林省公安厅</a>
+                                        <div class="forum-sub-title">吉林省公安厅是吉林省人民政府下设主管全省公安工作的职能部门，公安厅受省政府、公安部的双重领导。各市、县（县级市、区）设有公安局（分局），在镇、乡、街道设派出所。公安局（分局）和派出所，分别接受同级人民政府和上级公安机关领导</div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block js %}
+    <script>
+
+
+    </script>
+
+{% endblock %}

@@ -1,0 +1,98 @@
+
+	<div class="container-fluid">
+		<nav class="navbar navbar-expand-lg custom-navbar">
+			<div class="collapse navbar-collapse" id="WafiAdminNavbar">
+					<ul class="navbar-nav">
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle active-page" href="{% url 'user:index' %}" id="dashboardsDropdown" role="button"
+							   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								<i class="icon-devices_other nav-icon"></i>
+								我的首页
+							</a>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="appsDropdown" role="button" data-toggle="dropdown"
+							   aria-haspopup="true" aria-expanded="false">
+								<i class="icon-package nav-icon"></i>
+								财政统发工资
+							</a>
+							<ul class="dropdown-menu" aria-labelledby="appsDropdown">
+								<li>
+									<a class="dropdown-item" href="{% url 'user:detail' %}">工资明细查询</a>
+								</li>
+
+							</ul>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="appsDropdown" role="button" data-toggle="dropdown"
+							   aria-haspopup="true" aria-expanded="false">
+								<i class="icon-package nav-icon"></i>
+								工资发放标准
+							</a>
+							<ul class="dropdown-menu" aria-labelledby="appsDropdown">
+								<li>
+									<a class="dropdown-item" href="{% url 'file:duty' %}">职务工资标准</a>
+								</li>
+								<li>
+									<a class="dropdown-item" href="{% url 'file:level' %}">等级工资标准</a>
+								</li>
+								<li>
+									<a class="dropdown-item" href="{% url 'file:current' %}">现行补贴标准</a>
+								</li>
+							</ul>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="appsDropdown" role="button" data-toggle="dropdown"
+							   aria-haspopup="true" aria-expanded="false">
+								<i class="icon-package nav-icon"></i>
+								现行工资政策
+							</a>
+							<ul class="dropdown-menu " aria-labelledby="calendarsDropdown">
+								<li>
+									<a class="dropdown-item" href="#">国家级文件政策</a>
+								</li>
+								<li>
+									<a class="dropdown-item" href="#">省部级文件政策</a>
+								</li>
+								<li>
+									<a class="dropdown-item" href="#">本地政策规定</a>
+								</li>
+							</ul>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="/inform/v1/msg/" id="appsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								<i class="icon-package nav-icon"></i>
+								通知\通报\公示
+							</a>
+                            <ul class="dropdown-menu " aria-labelledby="appsDropdown">
+								<li>
+									<a class="dropdown-item" href="{% url 'file:inform' %}">国家级文件政策</a>
+								</li>
+
+							</ul>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="/inform/v1/talk/" id="appsDropdown" role="button" data-toggle="dropdown"
+							   aria-haspopup="true" aria-expanded="false">
+								<i class="icon-package nav-icon"></i>
+								留言咨询
+							</a>
+                            <ul class="dropdown-menu " aria-labelledby="appsDropdown">
+								<li>
+									<a class="dropdown-item" href="{% url 'file:board' %}">留言</a>
+								</li>
+
+							</ul>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="appsDropdown" role="button" data-toggle="dropdown"
+							   aria-haspopup="true" aria-expanded="false">
+								<i class="icon-package nav-icon text-danger"></i><!--class="icon-package nav-icon"-->
+								人力资源分布统计
+							</a>
+						</li>
+					</ul>
+			</div>
+		</nav>
+
+
